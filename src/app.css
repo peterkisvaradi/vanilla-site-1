@@ -1,0 +1,215 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: "Roboto", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --darkgreen60: rgba(0, 104, 88, 60%);
+  --lightgreen40: rgba(0, 204, 188, 40%);
+  --lightgreen10: rgba(0, 204, 188, 10%);
+  --hazywhite: rgba(255, 255, 255, 0.85);
+  --lightblue: rgba(32, 156, 238, 80%);
+  --blue: rgba(32, 156, 238, 100%);
+  --darkblue: rgba(50, 115, 220, 100%);
+}
+
+.wrap {
+  background-color: var(--lightgreen10);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
+  position: relative;
+  margin: 0 auto;
+  max-width: 1000px;
+  overflow: hidden;
+}
+
+.header {
+  position: relative;
+  background-color: var(--lightgreen40);
+  border-bottom: 1px solid var(--darkgreen60);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-image: url("./assets/cogs.svg");
+  background-size: contain;
+  background-repeat: repeat-x;
+  background-position: center;
+  height: 70px;
+}
+
+.headeritem {
+  position: relative;
+  cursor: pointer;
+  padding: 1.6rem 2rem 0.5rem 2rem;
+  border-bottom: 2px dotted var(--darkgreen60);
+  border-left: 2px dotted var(--darkgreen60);
+  border-right: 2px dotted var(--darkgreen60);
+  box-shadow: 2px 1px 5px var(--darkgreen60);
+  transition: all 300ms ease-in-out;
+  margin: -1rem 0.5rem 0.5rem 0.5rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  background-color: var(--darkgreen60);
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: rgba(0, 0, 0, 70%);
+  text-transform: uppercase;
+  border-top: 5px dotted var(--darkblue);
+}
+
+.headeritemactive {
+  background-color: var(--blue);
+  border-bottom: 2px solid var(--darkblue);
+  border-left: 2px solid var(--darkblue);
+  border-right: 2px solid var(--darkblue);
+  margin: 0 0.5rem -0.5rem 0.5rem;
+}
+
+@media (max-width: 350px) {
+  .headeritem {
+    margin: -1rem 0rem 0.5rem 0rem;
+    padding: 1.5rem 1rem 0.5rem 1rem;
+  }
+  .headeritemactive {
+    margin: 0rem 0rem -0.5rem 0rem;
+    padding: 1.5rem 1rem 0.5rem 1rem;
+  }
+}
+
+.contentwrap {
+  position: relative;
+  margin: 1.5rem;
+  height: 100%;
+  background-image: url("./assets/cogs.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.contents {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: all 500ms ease-in-out;
+  background-color: var(--hazywhite);
+  border: 1px dashed var(--darkgreen60);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.contentone {
+  left: 0;
+  margin-left: -100vw;
+}
+
+.contentoneactive {
+  margin-left: 0;
+}
+
+.contenttwo {
+  right: 0;
+  margin-right: -100vw;
+}
+
+.contenttwoactive {
+  margin-right: 0;
+}
+
+.cog {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: 1rem;
+  top: 1rem;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cogshadow {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  border-radius: 15px;
+  width: 24px;
+  height: 24px;
+  box-shadow: 5px 5px 4px 2px grey;
+}
+
+.coghole {
+  position: relative;
+  background-color: darkcyan;
+  width: 24px;
+  height: 24px;
+  border-radius: 13px;
+  z-index: 100;
+  border: 2px solid black;
+}
+
+.cogtip1 {
+  z-index: 90;
+  position: absolute;
+  background-color: black;
+  width: 10px;
+  height: 30px;
+  border-radius: 2px;
+}
+
+.cogtip2 {
+  z-index: 90;
+  position: absolute;
+  background-color: black;
+  width: 30px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+.rotate {
+  animation: 0.7s infinite linear rotator;
+}
+
+@keyframes rotator {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (any-hover: hover) {
+  .headeritem:hover {
+    background-color: var(--blue);
+    border-bottom: 2px solid var(--darkblue);
+    border-left: 2px solid var(--darkblue);
+    border-right: 2px solid var(--darkblue);
+    margin: 0 0.5rem -0.5rem 0.5rem;
+    border-top: 5px dotted var(--darkblue);
+  }
+}
+
+@media (any-hover: hover) and (max-width: 350px) {
+  .headeritem:hover {
+    margin: 0rem 0rem -0.5rem 0rem;
+    padding: 1.5rem 1rem 0.5rem 1rem;
+  }
+}
+
+@media (max-width: 550px) {
+  .cogshadow,
+  .cog {
+    display: none;
+  }
+}
